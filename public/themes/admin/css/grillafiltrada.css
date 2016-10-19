@@ -1,0 +1,54 @@
+/**
+     * Grid layout custom classes
+     */
+
+     /* main container */
+    .grd-main-cont{
+        overflow: hidden;
+        background-color: #f4f4f4;
+    }
+
+    /* headers container */
+    .grd-head-cont{
+        overflow: hidden;
+        background-color: #4A4A4A;
+    }
+
+    /* header cell */
+    .grd-head-cont th{
+        background-color: #4A4A4A;
+        padding: 0.5em;
+        color: #fff;
+        border-right: 1px dotted #fff;
+        height: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* table container */
+    .grd-cont{
+        background-color: #f4f4f4;
+        overflow-x: auto;
+        overflow-y: scroll;
+    }
+
+    /* cell */
+    .grd-cont td{
+        padding: 0.5em 0.5em;
+        border-bottom: 1px solid #ccc;
+        border-right: 1px dotted #666;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* head and body tables */
+    .grd-head-cont table, .grd-cont table{
+        font-size: 1.1em;
+        border-collapse: collapse;
+    }
+
+    /* bottom toolbar override */
+    .grd-main-cont > .grd_inf {
+        background-color: #ccc;
+        border-top: 1px solid #999;
+    }

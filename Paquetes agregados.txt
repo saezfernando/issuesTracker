@@ -1,0 +1,216 @@
+Tareas Pendientes
+1.- Insistir con los datos de los formularios pedidos a calidad
+2.- Repasar campos nulos, obligatorios y tipos de datos.
+3.- Realizar todas las validaciones de javascript
+4.- Realizar las validaciones en PHP
+5.- Instalar Sql Server y Abrir la BD vieja de calidad
+6.- Analizar la BD vieja en busca de algo pasado por alto.
+7.- Preparar los scripts para migracion
+8.- Agregar el manejo de excepciones en toda la aplicación **
+
+10.- Agregar lo de Calendario, con el package visto (agregar a ventos los seguimientos???)
+11.- Completar el tablero de comandos de indicadores (Valor actual, historico)
+12.- Testing de la aplicación
+15.- Decidir que campos mostrar en el index de los formularios
+16.- Desarrollar el administrador de archivos
+17.- Desarrollar la home con enlaces a los archivos más utilizados (categorizar la info)
+18.- Decidir como se mostrarán las notificaciones y por cuanto tiempo
+19.- Decidir Como administrar las alertas
+20.- Reorganizar los permisos de la aplicacion
+21.- Solicitar una mejor definicion de los roles
+23.- Insistir con el servidor web en el datacenter
+24.- Llevar a 2 columnas los formularios extensos
+
+
+Paquete Roles
+"bican/roles": "2.1.*"
+Paquete clase HTML y Form
+"laravelcollective/html": "5.2.*"
+notificaciones
+"michaeljennings/feed": "0.1.*"
+file manager
+https://github.com/UniSharp/laravel-filemanager/blob/master/doc/installation.md
+Calendarios
+https://github.com/maddhatter/laravel-fullcalendar
+graficos barras lavacharts
+https://github.com/kevinkhill/lavacharts
+http://lavacharts.com/#examples
+
+
+Librería css advance datatable
+datatable-bootstrap.css
+    js/
+      datatable-bootstrap.js
+      jquery.dataTables.js
+      jquery.js
+
+<link href="http://localhost/CalidadULP/public/themes/admin/js/advanced-datatable/css/demo_page.css" rel="stylesheet" />
+<link href="http://localhost/CalidadULP/public/themes/admin/js/advanced-datatable/css/demo_table.css" rel="stylesheet" />
+
+Librería Bootstrap
+
+iconos en fuente css
+font-awesome.min
+http://fontawesome.io/examples/
+
+plugin jquery
+https://jqueryvalidation.org/
+https://jqueryvalidation.org/category/validator/
+<script src="{{ asset('themes/admin/js/validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('themes/admin/js/validation/validation-init.js') }}"></script>
+
+Luego de instalar paquetes a lo cual hemos agregado un serviceprovider y alias luego de hacer un composer update hacer
+composer dump-autoload
+php artisan cache:clear
+php artisan config:clear
+
+
+
+
+
+
+//ver porque no renderiza bien select multiple (En note funciona bien *****)
+
+////ver permiso marcar leido
+
+Ver que hacer con el borrado de los usuarios, si lo hacemos logico hay que hacer una
+activo, no activo.  Con los roles igual
+
+
+filtros (mejorar filtro, ver de agregar select, cambiar el estilo cuando entra modo filtro) ver doc en datatable
+valores por default (fecha inicio la actual, año 2016, estado= planificada) (listo ver fecha y estado mejorar)
+
+cambiar el estilo de las tablas cuando entra en modo filtro
+help button y reset button del filtro de tabla
+
+auditoria????
+notificaciones????
+arreglar la vista para monitores 19" (agregar bootstrap  col-md-x)
+
+Comunicacion interna - 
+Agregar los seeds a toddos los permisos roles (rol 1)
+
+hacer ñlos chequeos de comprobar por campos vacios a la hora de imprimir en formularios 
+@if (!empty())
+
+Notificaciones
+Conque criterio se darán de baja las  notificaciones para que no aparezcan más en 
+el listado?
+
+Atrapar las excepciones de campos duplicados!!!!!
+revisar telefono sin llenar en usuario genera valor 0 en la BD
+
+
+No conformidad
+que sucede con usuario???
+validaciones
+campos obligatorios
+valores de tablas auxiliares
+orden de los campos
+campos a mostrar
+
+
+botones de operaciones
+Barras de scroll
+archivo pdf
+archivo excel
+
+
+
+
+
+//fijarse como solucinar la recuperacion de datos cuando se accede a una relacion aux y el campo no tiene datos
+
+// probar si funciona bien con todos los nombres de archivos
+
+
+//PROCEDIMIENTO OPERATIVO
+Validar campos
+Validar que el adjunto subido sea un word o PDF (Exigimos un PDF???)
+confirmar el borrado
+
+Que dueño no se pueda actualizar???
+Los estados de Procedimiento deben tener valores fijos inamovibles (Cambiar autoincremental en tabla)
+Hacer una función que en el seeder chequee que se hayan cargado esos valores en la BD
+
+Moificar version cuanddo agrega nueva version o revision
+Probar, fijarse que en vez de validar lo que esta haciendo es hacer obsoleto--
+mostrar en todos los forms que relacionan a user el apellido,nombre
+
+
+
+Fecha de entrega de la Base de Datos 6 Septiembre de 2016
+
+para filtrar tablas utilizamos el plugin jquery  tablefilter
+http://koalyptus.github.io/TableFilter/examples.html
+http://koalyptus.github.io/TableFilter/auto-filter.html#{"col_1":{},"col_2":{},"col_3":{}}
+
+
+documentacion para botones de exportar pdf y excel
+https://datatables.net/extensions/buttons/examples/initialisation/export.html
+
+AutoTable para exportar a PDF
+https://github.com/simonbengtsson/jsPDF-AutoTable
+
+
+Tener en cuenta que las operaciones de refresh o migrate se realizan
+teniendo en cuenta la tabla migrations en la BD
+O sea la tabla migrations debe contener como contenido todas las tablass que existen en la BD
+
+Para ejecutar las migraciones completas hacer:
+
+composer dump-autoload
+php artisan migrate:refresh --seed
+
+si se quiere migrar una tabla en particular
+php artisan migrate
+
+Si recibes un error "class not found" cuando ejecutas las migraciones intentar de nuevo despues de llamar a composer dump-autoload
+
+Para poblar la base de datos
+php artisan db:seed
+
+Para poblar una tabla en particular
+php artisan db:seed --class=XXXTableSeeder
+
+
+
+Validar mejor la funcion javascript que prueba la direccion de encuesta del indicados
+
+Testear bien que cuando hay un adjunto y se actualiza y no se sube un adjunto se pisa y queda sin adjunto
+
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScGidBFBvxxo4hkCh2PepV0MWUHCHb1JPq-zgG5GAkSm9nfCg/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Cargando...</iframe>
+
+
+
+
+agregar quizas a app.php los parametro de la aplicación que necesitemos. 
+ej. parametro para calcular tablero de comandos
+Amarillo o atención (valor entre la meta y 20% menos)
+Menor a ese valor Preocupación o rojo y mayor verde
+
+
+Mejoras nueva version
+tratar calendario personal (un color )  + global (otro)
+Formularios muy largos pasar a 2 columnas
+testear en pantallas 19 o 21'
+Estirar en el pdf los campos para que no trunque los campos con datos muy largos
+
+
+
+
+ver porque no anda userxrol
+
+
+Verificar que  registros que tienen datos relacionados ej usuarrios con areas, cuando se borra un area 
+entonces debemos recuperar usuarios con registros borrados (arreglar para todos los casos)
+
+
+Agregar todas las claves foraneas
+arreglar notificacion, dejar solo leido, agregar marcar leido todos,
+
+Que hacemos con borrado de procedimientos
+Extender todo a procedimientos con version validad??
+
+
+
